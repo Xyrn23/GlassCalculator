@@ -64,12 +64,11 @@ Feel free to customize the calculator design to your needs. You can modify the c
 
 # How did I achieve this?
 
-### here's some screenshots of my prompts and the response of the scodeai;
+*here's some screenshots of my prompts and the response of the scodeai;*
+
 
 `The summary of my prompt was:`
 
 
 
 > Create a html,css,js code that will generate a responsive glassmorphism calculator with complete buttons and with a gradient background featuring curved lines to have a modern appearance.
-
-```
