@@ -11,6 +11,8 @@ body {
   min-height: 100vh;
   background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
   font-family: 'Arial', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
 .wavy-bg {
@@ -19,32 +21,71 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.wavy-bg svg {
-  width: 150%;
-  height: 100%;
-}
-
-.app-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,96L48,117.3C96,139,192,181,288,197.3C384,213,480,203,576,197.3C672,192,768,192,864,181.3C960,171,1056,149,1152,160C1248,171,1344,213,1392,234.7L1440,256V320H1392V0H1344V320H1296L1152,0L1056,320H1008H912H864H816L768,0L720,320H672H576L480,0L432,320H384H336L288,0L240,320H192H144L96,0L48,320H0Z'%3E%3C/path%3E%3C/svg%3E");
+  background-position: center;
+  background-size: cover;
 }
 
 .calculator {
-  position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1.5fr);
   grid-gap: 10px;
-  max-width: 260px;
-  background: rgba(255, 255, 255, 0.1);
+  width: 260px;
   padding: 20px;
   border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+
+#display {
+  grid-column: 1/-1;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: right;
+  color: #fff;
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.button {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+  font-size: 24px;
+  transition: background 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#plus {
+  grid-row: 5 / span 2;
+}
+#equals-button {
+    grid-column: span 3 ;
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    grid-gap: 5px;
+    width: 200px;
+    padding: 15px;
+  }
+
+  #display {
+    font-size: 20px;
+  }
+
+  .button {
+    font-size: 20px;
+  }
 }
